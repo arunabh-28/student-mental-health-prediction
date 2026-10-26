@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student wellbeing estimator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="layout">
+    <section class="form-panel">
+      <h1>How is this student doing?</h1>
+      <p class="intro">Enter a student's daily habits to estimate their mental health score on a scale of 0 to 10.</p>
+
+      <form id="predict-form" novalidate>
+        <fieldset>
+          <legend>About the student</legend>
+          <div class="grid">
+            <label>Age
+              <input type="number" name="Age" min="10" max="100" value="20" required>
+            </label>
+            <label>Gender
+              <select name="Gender" required></select>
+            </label>
+            <label>Academic level
+              <select name="Academic_Level" required></select>
+            </label>
+            <label>Country
+              <select name="Country" required></select>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Social media</legend>
+          <div class="grid">
+            <label>Daily usage (hours)
+              <input type="number" name="Avg_Daily_Usage_Hours" min="0" max="24" step="0.1" value="4" required>
+            </label>
+            <label>Phone unlocks per day
+              <input type="number" name="Daily_Unlocks" min="0" max="1000" value="60" required>
+            </label>
+            <label>Most used platform
+              <select name="Most_Used_Platform" required></select>
+            </label>
+            <label>Main purpose
+              <select name="Purpose_Of_Use" required></select>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Daily routine</legend>
+          <div class="grid">
+            <label>Study (hours)
+              <input type="number" name="Study_Hours" min="0" max="24" step="0.1" value="4" required>
+            </label>
+            <label>Sleep per night (hours)
+              <input type="number" name="Sleep_Hours_Per_Night" min="0" max="24" step="0.1" value="7" required>
+            </label>
+            <label>Physical activity (hours)
+              <input type="number" name="Physical_Activity_Hours" min="0" max="24" step="0.1" value="1" required>
+            </label>
+            <label>Stress level
+              <select name="Stress_Level" required></select>
+            </label>
+          </div>
+        </fieldset>
+
+        <button type="submit" id="submit-btn">Estimate score</button>
+      </form>
+    </section>
+
+    <aside class="result-panel" aria-live="polite">
+      <h2>Estimated score</h2>
+      <div class="score" id="score">–</div>
+      <div class="scale" role="img" aria-label="Score scale from 0 to 10">
+        <div class="scale-bar"></div>
+        <div class="scale-marker" id="marker" hidden></div>
+        <div class="scale-ends"><span>0</span><span>10</span></div>
+      </div>
+      <p class="verdict" id="verdict">Fill in the form and select Estimate score.</p>
+      <p class="error" id="error" role="alert" hidden></p>
+      <p class="note">This is a statistical estimate from survey patterns, not a diagnosis. If you are worried about someone's wellbeing, talk to a counsellor or doctor.</p>
+    </aside>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
