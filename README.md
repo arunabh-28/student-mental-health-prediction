@@ -82,6 +82,4 @@ Student-Mental-Health-Prediction/
 
 The goal is to demonstrate an end-to-end machine learning workflow—from survey-data preprocessing and regression model evaluation to API integration and an interactive application.
 
----
 
-*This project is intended for educational and exploratory analysis of survey patterns. Its predictions should not be interpreted as a clinical assessment or diagnosis.*
